@@ -19,15 +19,19 @@
 	"users":{
 		"user1":{
 			"username":"Mike",
-			"uid":""
+			"uid":"RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"user2":{
 			"username":"Owen",
-			"uid":""
+			"uid":"jOv1x50XsbV28HmarxeIrBhZ3Vu2"
 		},
 		"user3":{
 			"username":"Josh",
-			"uid":""
+			"uid":"1tU9pEM66TV8JEK83VQe56ZQa783"
+		},
+		"user3":{
+			"username":"Blair",
+			"uid":"zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		}
 	}
 }
