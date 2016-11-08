@@ -1,0 +1,33 @@
+{
+	"movies": {
+		"movie0": {
+			"title": "",
+			"isWatched": true,
+			"uid": ""
+		},
+		"movie1": {
+			"title": "",
+			"isWatched": false,
+			"uid": ""
+		},
+		"movie2": {
+			"title": "",
+			"isWatched": false,
+			"uid": ""
+		}
+	},
+	"users":{
+		"user1":{
+			"username":"Mike",
+			"uid":""
+		},
+		"user2":{
+			"username":"Owen",
+			"uid":""
+		},
+		"user3":{
+			"username":"Josh",
+			"uid":""
+		}
+	}
+}
