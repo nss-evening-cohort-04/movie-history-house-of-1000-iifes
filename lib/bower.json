@@ -1,0 +1,20 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/nss-evening-cohort-04/modernjs-quiz-jkillz2020",
+  "authors": [
+    "jkillz2020 <kilgore.josh@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
