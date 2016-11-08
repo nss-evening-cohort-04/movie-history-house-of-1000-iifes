@@ -7,21 +7,22 @@
   <title>Movie History App</title>
 </head>
 <body>
-<div class="container col-xs-4 col-xs-offset-4" id="login-container">
+	<div class="container col-xs-4 col-xs-offset-4" id="login-container">
         <h1 class="form-signin-heading">Movie App</h1>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
         <button class="btn btn-lg btn-success col-xs-6" id="loginButton">Login</button>
         <button class="btn btn-lg btn-primary col-xs-6" id="registerButton">Register</button>
+	</div>
+        
+    <div class="col-xs-offset-2 col-xs-8 hide" id="movie-search-container">
+        <h1>Search Movies!</h1>
     </div>
-        <div class="col-xs-offset-2 col-xs-8" id="movie-search-container">
-          <h1>Search Movies!</h1>
-        </div>
 
-        <div class="col-xs-offset-2 col-xs-8" id="stored-movies">
-          <h1>My Movies</h1>
-        </div>
+    <div class="col-xs-offset-2 col-xs-8 hide" id="stored-movies">
+        <h1>My Movies</h1>
+    </div>
   
   <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
   <script src="/lib/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
