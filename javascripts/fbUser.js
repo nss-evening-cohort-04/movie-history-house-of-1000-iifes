@@ -38,3 +38,5 @@ var FbAPI = (function(oldFirebase){
 	};
 
 	return oldFirebase;
+
+})(FbAPI || {});	
