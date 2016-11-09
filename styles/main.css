@@ -1,2 +1,6 @@
 body {
-  background-color: red; }
+  background-color: #CD5C5C;
+  font-family: 'Marcellus SC', serif; }
+
+#login-container {
+  margin-top: 100px; }
