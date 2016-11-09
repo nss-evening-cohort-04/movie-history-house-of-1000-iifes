@@ -60,14 +60,28 @@ FbAPI.firebaseCredentials().then(function(keys){
 		});
 	});
 
-$('#logout-container').on("click", "#logoutBtn", function(){
-  FbAPI.logoutUser();
-  uid = "";
-  $('#inputEmail').val("");
-  $('#inputPassword').val("");
-  $('#inputUsername').val("");
-  $('#login-container').removeClass("hide");
-  $('#movie-container').addClass("hide");
+
+	$('#searchBtn').on('click', function(){
+		$('#login-container').addClass('hide');
+		$('#stored-movies').addClass('hide');
+		$('#movie-search-container').removeClass('hide');
+	});
+
+	$('#myMovieBtn').on('click', function(){
+		$('#login-container').addClass('hide');
+		$('#stored-movies').removeClass('hide');
+		$('#movie-search-container').addClass('hide');
+	});	
+
+	$('#logout-container').on("click", "#logoutBtn", function(){
+  	FbAPI.logoutUser();
+  	uid = "";
+  	$('#inputEmail').val("");
+  	$('#inputPassword').val("");
+  	$('#inputUsername').val("");
+  	$('#login-container').removeClass("hide");
+  	$('#movie-container').addClass("hide");
+
 	});
 
 });
