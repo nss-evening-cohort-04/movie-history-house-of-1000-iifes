@@ -60,4 +60,14 @@ FbAPI.firebaseCredentials().then(function(keys){
 		});
 	});
 
+$('#logout-container').on("click", "#logoutBtn", function(){
+  FbAPI.logoutUser();
+  uid = "";
+  $('#inputEmail').val("");
+  $('#inputPassword').val("");
+  $('#inputUsername').val("");
+  $('#login-container').removeClass("hide");
+  $('#movie-container').addClass("hide");
+	});
+
 });
