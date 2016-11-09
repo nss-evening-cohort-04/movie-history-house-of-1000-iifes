@@ -60,4 +60,16 @@ FbAPI.firebaseCredentials().then(function(keys){
 		});
 	});
 
+	$('#searchBtn').on('click', function(){
+		$('#login-container').addClass('hide');
+		$('#stored-movies').addClass('hide');
+		$('#movie-search-container').removeClass('hide');
+	});
+
+	$('#myMovieBtn').on('click', function(){
+		$('#login-container').addClass('hide');
+		$('#stored-movies').removeClass('hide');
+		$('#movie-search-container').addClass('hide');
+	});
+
 });
