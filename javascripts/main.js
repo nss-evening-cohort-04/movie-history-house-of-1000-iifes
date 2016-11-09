@@ -60,6 +60,7 @@ FbAPI.firebaseCredentials().then(function(keys){
 		});
 	});
 
+
 	$('#searchBtn').on('click', function(){
 		$('#login-container').addClass('hide');
 		$('#stored-movies').addClass('hide');
@@ -70,6 +71,17 @@ FbAPI.firebaseCredentials().then(function(keys){
 		$('#login-container').addClass('hide');
 		$('#stored-movies').removeClass('hide');
 		$('#movie-search-container').addClass('hide');
+	});	
+
+	$('#logout-container').on("click", "#logoutBtn", function(){
+  	FbAPI.logoutUser();
+  	uid = "";
+  	$('#inputEmail').val("");
+  	$('#inputPassword').val("");
+  	$('#inputUsername').val("");
+  	$('#login-container').removeClass("hide");
+  	$('#movie-container').addClass("hide");
+
 	});
 
 });
