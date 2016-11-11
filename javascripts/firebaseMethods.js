@@ -8,15 +8,15 @@ oldFirebase.getMovies = function(apiKeys, uid){
 				method : 'GET',
 				url: `${apiKeys.databaseURL}/movies.json?orderBy="uid"&equalTo="${uid}"`
 			}).then((response)=>{
-				//console.log("response", response);
+				console.log("response", response);
 				let movies = [];
-				Object.keys(response).forEach(function(key){
+				Object.keys(response).map(function(key){
 					response[key].id = key;
 					movies.push(response[key]);
 				});
 				resolve(movies);
 			},(error)=>{
-				console.log("error", error);
+				console.log("error from firebase", error);
 				reject(error);
 			});
 		});

@@ -8,35 +8,32 @@ function putMoviesInDom(){
 		console.log("movies from FB", movies);
 		$('#watched').html("");
 		$('#toWatch').html("");
-		movies.forEach(function(movie){
+		movies.map(function(movie){
         if(movie.isWatched === true){
-          let newListmovie = `<li data-completed=${movie.isCompleted}>`;
+          let newListmovie = `<li data-completed=${movie.isWatched}>`;
           newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
           newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
-          newListmovie+=`<label class="inputLabel">${movie.task}</label>`;
-          newListmovie+='<input type="text" class="inputTask">';
+          newListmovie+=`<label class="inputLabel">${movie.title}</label>`;
           newListmovie+='</div>';
           newListmovie+='<div class="col-xs-4">';
-          newListmovie+=`<button class="btn btn-default col-xs-6 edit" data-fbid="${movie.id}">Edit</button>`;
           newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
           newListmovie+='</div>';
           newListmovie+='</li>';
           //apend to list
           $('#watched').append(newListmovie);
         } else {
-          let newListmovie = `<li data-completed=${movie.isCompleted}>`;
+          let newListmovie = `<li data-completed=${movie.watch}>`;
           newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
           newListmovie+='<input class="checkboxStyle" type="checkbox">';
           newListmovie+=`<label class="inputLabel">${movie.task}</label>`;
           newListmovie+='<input type="text" class="inputTask">';
           newListmovie+='</div>';
           newListmovie+='<div class="col-xs-4">';
-          newListmovie+=`<button class="btn btn-default col-xs-6 edit" data-fbid="${movie.id}">Edit</button>`;
           newListmovie+=`<button class="btn btn-danger col-xs-6 delete" data-fbid="${movie.id}">Delete</button>`;
           newListmovie+='</div>';
           newListmovie+='</li>';
           //apend to list
-          $('#toWatch').append(newListItem);
+          $('#toWatch').append(newListmovie);
         }	
 		});
 	});
