@@ -174,6 +174,17 @@ FbAPI.firebaseCredentials().then(function(keys){
 		$('#movie-search-container').addClass('hide');
 	});	
 
+  $('#movie-adder').on('click', function(){
+    let newMovie = {
+      "title": "${dataFromOMDB}.Title",
+      "isWatched": false,
+      "uid": uid
+    };
+    FbAPI.addMovie(apiKeys, newMovie).then(function(){
+      putMovieInDOM();
+    });
+  });
+
 	$('#logout-container').on("click", "#logoutBtn", function(){
   	FbAPI.logoutUser();
   	uid = "";
