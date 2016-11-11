@@ -3,6 +3,43 @@
 let apiKeys = {};
 let uid = "";
 
+function putMoviesInDom(){
+	FbAPI.getMovies(apiKeys, uid).then(function(movies){
+		console.log("movies from FB", movies);
+		$('#watched').html("");
+		$('#toWatch').html("");
+		movies.map(function(movie){
+        if(movie.isWatched === true){
+          let newListmovie = `<li data-completed=${movie.isWatched}>`;
+          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
+          newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
+          newListmovie+=`<label class="inputLabel">${movie.title}</label>`;
+          newListmovie+='</div>';
+          newListmovie+='<div class="col-xs-4">';
+          newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
+          newListmovie+='</div>';
+          newListmovie+='</li>';
+          //apend to list
+          $('#watched').append(newListmovie);
+        } else {
+          let newListmovie = `<li data-completed=${movie.watch}>`;
+          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
+          newListmovie+='<input class="checkboxStyle" type="checkbox">';
+          newListmovie+=`<label class="inputLabel">${movie.task}</label>`;
+          newListmovie+='<input type="text" class="inputTask">';
+          newListmovie+='</div>';
+          newListmovie+='<div class="col-xs-4">';
+          newListmovie+=`<button class="btn btn-danger col-xs-6 delete" data-fbid="${movie.id}">Delete</button>`;
+          newListmovie+='</div>';
+          newListmovie+='</li>';
+          //apend to list
+          $('#toWatch').append(newListmovie);
+        }	
+		});
+	});
+}
+
+
 //API search promise
 let movieList = (searchText) => {
 	return new Promise ((resolve,reject) => {
@@ -85,9 +122,10 @@ FbAPI.firebaseCredentials().then(function(keys){
 			console.log("loginResponse", loginResponse);
 			uid = loginResponse.uid;
 			//createLoginButton();
-			//putTodoInDom();
+			
 			$('#login-container').addClass('hide');
 			$('#stored-movies').removeClass('hide');
+			putMoviesInDom();
 		});
 	});
 
