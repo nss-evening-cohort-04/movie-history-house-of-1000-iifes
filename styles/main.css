@@ -21,3 +21,6 @@ body {
 #movie-adder {
   margin-top: 15px;
   margin-bottom: 15px; }
+
+.hidden {
+  display: none; }
