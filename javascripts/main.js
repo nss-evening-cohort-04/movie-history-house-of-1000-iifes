@@ -101,7 +101,7 @@ FbAPI.firebaseCredentials().then(function(keys){
 			$('#movie-search-button').button('reset'); 
 			console.log("dataFromOMDB: ", dataFromOMDB);
 			console.log("Title returned from search: ", dataFromOMDB.Title);
-			$('#movie-search-output').append(`<h2>${dataFromOMDB.Title}</h2>`);
+			$('#movie-search-output').append(`<h2>${dataFromOMDB.Title}</h2>` + '<button class="btn btn-sm btn-success" id="movie-adder">Add Movie to My Watchlist</button>');
 			}).catch((error) => {
 				$('#movie-search-button').button('reset');
 			});	
