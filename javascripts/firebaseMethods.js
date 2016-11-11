@@ -2,6 +2,26 @@
 
 var FbAPI =(function(oldFirebase){
 
+oldFirebase.getMovies = function(apiKeys, uid){
+		return new Promise((resolve,reject)=>{
+			$.ajax({
+				method : 'GET',
+				url: `${apiKeys.databaseURL}/movies.json?orderBy="uid"&equalTo="${uid}"`
+			}).then((response)=>{
+				//console.log("response", response);
+				let movies = [];
+				Object.keys(response).forEach(function(key){
+					response[key].id = key;
+					movies.push(response[key]);
+				});
+				resolve(movies);
+			},(error)=>{
+				console.log("error", error);
+				reject(error);
+			});
+		});
+	};
+
 oldFirebase.addMovie = function(apiKeys, newMovie){
     return new Promise((resolve, reject)=>{
       $.ajax({

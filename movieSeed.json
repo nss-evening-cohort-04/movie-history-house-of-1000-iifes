@@ -1,19 +1,64 @@
 {
 	"movies": {
 		"movie0": {
-			"title": "",
+			"title": "Debbie Does Dallas",
 			"isWatched": true,
-			"uid": ""
+			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"movie1": {
-			"title": "",
+			"title": "Forest Gump",
 			"isWatched": false,
-			"uid": ""
+			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"movie2": {
-			"title": "",
+			"title": "Die Hard",
 			"isWatched": false,
-			"uid": ""
+			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
+		},
+		"movie3": {
+			"title": "Frozen",
+			"isWatched": true,
+			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
+		},
+		"movie4": {
+			"title": "Lion Kiing",
+			"isWatched": false,
+			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
+		},
+		"movie5": {
+			"title": "Rambo",
+			"isWatched": false,
+			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
+		},
+		"movie6": {
+			"title": "The Drunken Master",
+			"isWatched": true,
+			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
+		},
+		"movie7": {
+			"title": "13 Going on 30",
+			"isWatched": false,
+			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
+		},
+		"movie8": {
+			"title": "Shawshank",
+			"isWatched": false,
+			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
+		},
+		"movie9": {
+			"title": "Rush Hour 3",
+			"isWatched": true,
+			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
+		},
+		"movie10": {
+			"title": "James Bond Golden Eye",
+			"isWatched": false,
+			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
+		},
+		"movie11": {
+			"title": "Die Hard",
+			"isWatched": false,
+			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		}
 	},
 	"users":{
@@ -29,7 +74,7 @@
 			"username":"Josh",
 			"uid":"1tU9pEM66TV8JEK83VQe56ZQa783"
 		},
-		"user3":{
+		"user4":{
 			"username":"Blair",
 			"uid":"zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		}
