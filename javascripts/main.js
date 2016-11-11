@@ -138,8 +138,25 @@ FbAPI.firebaseCredentials().then(function(keys){
 			$('#movie-search-button').button('reset'); 
 			console.log("dataFromOMDB: ", dataFromOMDB);
 			console.log("Title returned from search: ", dataFromOMDB.Title);
-			$('#movie-search-output').append(`<div class="movie-output" id="${dataFromOMDB.Title}">` + `<h2>${dataFromOMDB.Title}</h2>` + `<h4>Year Released: ${dataFromOMDB.Year}</h4>` + `<h4>Starring:</h4> <h4>${dataFromOMDB.Actors}</h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>' + '<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success" id="movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
+			$('#movie-search-output').append(`<div class="movie-output" id="${dataFromOMDB.imdbID}">` + `<h2>${dataFromOMDB.Title}</h2>` + `<h4>Year Released: ${dataFromOMDB.Year}</h4>` + `<h4>Starring:</h4> <h4>${dataFromOMDB.Actors}</h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>' + '<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
 			
+
+			//Add to Watchlist Button
+			$('.movie-adder').on('click', function(){
+			    $(`#${dataFromOMDB.imdbID}`).appendTo('#toWatchOutput');
+			//     let newMovie = {
+			//       "title": `${dataFromOMDB}.Title`,
+			//       "isWatched": false,
+			//       "uid": uid
+			    });
+			//     FbAPI.addMovie(apiKeys, newMovie).then(function(){
+			//       putMoviesInDOM();
+			//     });
+			// });
+			//The commented-out code isn't quite working, continuing to plug away at
+
+
+
 			//Watched (Seen It!) Checkbox
 			$('.watched-checkbox').on('click', function (clickEvent) {
 				if ($('.watched-checkbox').is(':checked')){
