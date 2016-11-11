@@ -156,9 +156,31 @@ FbAPI.firebaseCredentials().then(function(keys){
 			});
 
 
-	});	
+	});
 
-	
+	//delete
+	$('ol').on('click','.delete', function(){
+		let itemId = $(this).data('fbid');
+		FbAPI.deleteMovie(apiKeys, itemId).then(function(){
+			putMoviesInDom();
+		});
+	});
+
+	//checkbox
+	$('ol').on('change', 'input[type="checkbox"]', function(){
+			let updatedIsWatched = $(this).closest('li').data('watchedOutput');
+			let movieId = $(this).parent().data('fbid');
+			let title = $(this).siblings('.movieTitle').html();
+
+			let watchedMovie = {
+				"title": title,
+				"isWatched": !updatedIsWatched,
+				"uid":uid
+			};
+			FbAPI.watchedMovie(apiKeys, movieId, watchedMovie).then(function(){
+				putMoviesInDom();
+		 	});
+	});
 
 
 	$('#searchBtn').on('click', function(){

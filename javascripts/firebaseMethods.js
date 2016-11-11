@@ -52,12 +52,12 @@ oldFirebase.addMovie = function(apiKeys, newMovie){
     });
   };
 
-  oldFirebase.editMovie = function(apiKeys, movieId, editedMovie){
+  oldFirebase.watchedMovie = function(apiKeys, movieId, watchedMovie){
     return new Promise((resolve, reject)=>{
       $.ajax({
         method: "PUT",
         url: `${apiKeys.databaseURL}/movies/${movieId}.json`,
-        data: JSON.stringify(editedMovie),
+        data: JSON.stringify(watchedMovie),
         dataType: 'json'
       }).then((response)=>{
         console.log("response from PUT", response);
