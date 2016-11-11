@@ -101,11 +101,15 @@ FbAPI.firebaseCredentials().then(function(keys){
 			$('#movie-search-button').button('reset'); 
 			console.log("dataFromOMDB: ", dataFromOMDB);
 			console.log("Title returned from search: ", dataFromOMDB.Title);
-			$('#movie-search-output').append(`<h2>${dataFromOMDB.Title}</h2>` + '<button class="btn btn-sm btn-success" id="movie-adder">Add Movie to My Watchlist</button>');
+			$('#movie-search-output').append('<div class="movie-output">' + `<h2>${dataFromOMDB.Title}</h2>` + `<h4>Year Released: ${dataFromOMDB.Year}</h4>` + `<h4>Starring:</h4> <h4>${dataFromOMDB.Actors}</h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!">Seen it!</input>' + '<h4>My Rating:</h4> <select> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success" id="movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
 			}).catch((error) => {
 				$('#movie-search-button').button('reset');
-			});	
-		});	
+			});
+
+
+	});	
+
+	
 
 
 	$('#searchBtn').on('click', function(){
