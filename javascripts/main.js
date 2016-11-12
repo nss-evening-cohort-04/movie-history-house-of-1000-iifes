@@ -3,42 +3,6 @@
 let apiKeys = {};
 let uid = "";
 
-function putMoviesInDom(){
-	FbAPI.getMovies(apiKeys, uid).then(function(movies){
-		console.log("movies from FB", movies);
-		$('#watchedOutput').html("");
-		$('#toWatchOutput').html("");
-		movies.map(function(movie){
-        if(movie.isWatched === true){
-          let newListmovie = `<li>`;
-          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
-          newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
-          newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
-          newListmovie+='</div>';
-          newListmovie+='<div class="col-xs-4">';
-          newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
-          newListmovie+='</div>';
-          newListmovie+='</li>';
-          //apend to list
-          $('#watchedOutput').append(newListmovie);
-        } else {
-          let newListmovie = `<li>`;
-          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
-          newListmovie+='<input class="checkboxStyle" type="checkbox">';
-          newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
-          newListmovie+='</div>';
-          newListmovie+='<div class="col-xs-4">';
-          newListmovie+=`<button class="btn btn-danger col-xs-6 delete" data-fbid="${movie.id}">Delete</button>`;
-          newListmovie+='</div>';
-          newListmovie+='</li>';
-          //apend to list
-          $('#toWatchOutput').append(newListmovie);
-        }	
-		});
-	});
-}
-
-
 //API search promise
 let movieList = (searchText) => {
 	return new Promise ((resolve,reject) => {
@@ -121,10 +85,9 @@ FbAPI.firebaseCredentials().then(function(keys){
 			console.log("loginResponse", loginResponse);
 			uid = loginResponse.uid;
 			//createLoginButton();
-			
+			//putTodoInDom();
 			$('#login-container').addClass('hide');
 			$('#stored-movies').removeClass('hide');
-			putMoviesInDom();
 		});
 	});
 
@@ -138,66 +101,11 @@ FbAPI.firebaseCredentials().then(function(keys){
 			$('#movie-search-button').button('reset'); 
 			console.log("dataFromOMDB: ", dataFromOMDB);
 			console.log("Title returned from search: ", dataFromOMDB.Title);
-			$('#movie-search-output').append(`<div class="movie-output" id="${dataFromOMDB.imdbID}">` + `<h2>${dataFromOMDB.Title}</h2>` + `<h4>Year Released: ${dataFromOMDB.Year}</h4>` + `<h4>Starring:</h4> <h4>${dataFromOMDB.Actors}</h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>' + '<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
-			
-
-			//Add to Watchlist Button
-			$('.movie-adder').on('click', function(){
-			    $(`#${dataFromOMDB.imdbID}`).appendTo('#toWatchOutput');
-			//     let newMovie = {
-			//       "title": `${dataFromOMDB}.Title`,
-			//       "isWatched": false,
-			//       "uid": uid
-			    });
-			//     FbAPI.addMovie(apiKeys, newMovie).then(function(){
-			//       putMoviesInDOM();
-			//     });
-			// });
-			//The commented-out code isn't quite working, continuing to plug away at
-
-
-
-			//Watched (Seen It!) Checkbox
-			$('.watched-checkbox').on('click', function (clickEvent) {
-				if ($('.watched-checkbox').is(':checked')){
-					$('.ratingHeader').removeClass('hidden');
-					$('.ratingDropdown').removeClass('hidden');
-				} else {
-					$('.ratingHeader').addClass('hidden');
-					$('.ratingDropdown').addClass('hidden');
-				}				
-			});
-
+			$('#movie-search-output').append(`<h2>${dataFromOMDB.Title}</h2>`);
 			}).catch((error) => {
 				$('#movie-search-button').button('reset');
-			});
-
-
-	});
-
-	//delete
-	$('ol').on('click','.delete', function(){
-		let itemId = $(this).data('fbid');
-		FbAPI.deleteMovie(apiKeys, itemId).then(function(){
-			putMoviesInDom();
-		});
-	});
-
-	//checkbox
-	$('ol').on('change', 'input[type="checkbox"]', function(){
-			let updatedIsWatched = $(this).closest('li').data('watchedOutput');
-			let movieId = $(this).parent().data('fbid');
-			let title = $(this).siblings('.movieTitle').html();
-
-			let watchedMovie = {
-				"title": title,
-				"isWatched": !updatedIsWatched,
-				"uid":uid
-			};
-			FbAPI.watchedMovie(apiKeys, movieId, watchedMovie).then(function(){
-				putMoviesInDom();
-		 	});
-	});
+			});	
+		});	
 
 
 	$('#searchBtn').on('click', function(){
@@ -211,17 +119,6 @@ FbAPI.firebaseCredentials().then(function(keys){
 		$('#stored-movies').removeClass('hide');
 		$('#movie-search-container').addClass('hide');
 	});	
-
-  $('#movie-adder').on('click', function(){
-    let newMovie = {
-      "title": "${dataFromOMDB}.Title",
-      "isWatched": false,
-      "uid": uid
-    };
-    FbAPI.addMovie(apiKeys, newMovie).then(function(){
-      putMovieInDOM();
-    });
-  });
 
 	$('#logout-container').on("click", "#logoutBtn", function(){
   	FbAPI.logoutUser();
