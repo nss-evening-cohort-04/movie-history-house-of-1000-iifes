@@ -2,61 +2,85 @@
 	"movies": {
 		"movie0": {
 			"title": "Debbie Does Dallas",
+			"yearReleased": "1980",
+			"starring": "Debbie, Dallas",
 			"isWatched": true,
 			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"movie1": {
 			"title": "Forest Gump",
+			"yearReleased": "1990",
+			"starring": "Simple Jack",
 			"isWatched": false,
 			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"movie2": {
 			"title": "Die Hard",
+			"yearReleased": "1992",
+			"starring": "Bruce Willy",
 			"isWatched": false,
 			"uid": "RJdtn493g2hafRSZJJaxiXU0OQ23"
 		},
 		"movie3": {
 			"title": "Frozen",
+			"yearReleased": "2014",
+			"starring": "That singing bitch",
 			"isWatched": true,
 			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
 		},
 		"movie4": {
 			"title": "Lion King",
+			"yearReleased": "1998",
+			"starring": "Simba",
 			"isWatched": false,
 			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
 		},
 		"movie5": {
 			"title": "Rambo",
+			"yearReleased": "1987",
+			"starring": "Debbie, Bob",
 			"isWatched": false,
 			"uid": "jOv1x50XsbV28HmarxeIrBhZ3Vu2"
 		},
 		"movie6": {
 			"title": "The Drunken Master",
+			"yearReleased": "1987",
+			"starring": "Drunk Jackie Chan",
 			"isWatched": true,
 			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
 		},
 		"movie7": {
 			"title": "13 Going on 30",
+			"yearReleased": "2002",
+			"starring": "Lindy Lowhands",
 			"isWatched": false,
 			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
 		},
 		"movie8": {
 			"title": "Shawshank",
+			"yearReleased": "1995",
+			"starring": "Margon Freesir",
 			"isWatched": false,
 			"uid": "1tU9pEM66TV8JEK83VQe56ZQa783"
 		},
 		"movie9": {
 			"title": "Rush Hour 3",
+			"yearReleased": "1999",
+			"starring": "Jackie",
 			"isWatched": true,
 			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		},
 		"movie10": {
 			"title": "James Bond Golden Eye",
+			"yearReleased": "1997",
+			"starring": "Mr. ShakenNotStired",
 			"isWatched": false,
 			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		},
 		"movie11": {
 			"title": "Die Hard",
+			"yearReleased": "1995",
+			"starring": "Bruce Willy",
 			"isWatched": false,
 			"uid": "zBJzlwaHHoTs3XPqSoLKtIaIsPh1"
 		}

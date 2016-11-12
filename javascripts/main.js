@@ -18,7 +18,7 @@ function putMoviesInDom(){
           newListmovie+=`<h4>Starring:</h4> <br> <h4>${movie.starring}</h4>`;
           newListmovie+='<input type="checkbox" class="watched-checkbox" checked value="Seen-it!"> Seen it!</input>';
           newListmovie+='<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>';
-          newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
+          newListmovie+=`<br> <button class="btn btn-danger delete">Delete</button> `;
           newListmovie+='</div>';
           newListmovie+='</li>';
           $('#watchedOutput').append(newListmovie);
@@ -30,7 +30,7 @@ function putMoviesInDom(){
           newListmovie+=`<h4>Starring:</h4> <br> <h4>${movie.starring}</h4>`;
           newListmovie+='<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>';
           newListmovie+='<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>';
-          newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
+          newListmovie+=`<br> <button class="btn btn-danger delete">Delete</button> `;
           newListmovie+='</div>';
           newListmovie+='</li>';
           $('#toWatchOutput').append(newListmovie);
@@ -178,8 +178,8 @@ FbAPI.firebaseCredentials().then(function(keys){
 
 	//delete
 	$('ol').on('click','.delete', function(){
-		let itemId = $(this).data('fbid');
-		FbAPI.deleteMovie(apiKeys, itemId).then(function(){
+		let movieId = $(this).parent().data('fbid');
+		FbAPI.deleteMovie(apiKeys, movieId).then(function(){
 			putMoviesInDom();
 		});
 	});
