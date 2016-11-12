@@ -18,7 +18,7 @@ body {
   border-radius: 2%;
   background-color: white; }
 
-#movie-adder {
+.movie-adder {
   margin-top: 15px;
   margin-bottom: 15px; }
 
