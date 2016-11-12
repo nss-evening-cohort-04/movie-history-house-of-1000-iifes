@@ -10,29 +10,52 @@ function putMoviesInDom(){
 		$('#toWatchOutput').html("");
 		movies.map(function(movie){
         if(movie.isWatched === true){
+        	//$('#watchedOutput').append(`<div class="movie-output" id="${movie.title}">` + `<h2>${movie.title}</h2>` + `<h4>Year Released: </h4>` + `<h4>Starring:</h4> <h4></h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>' + '<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
+
           let newListmovie = `<li>`;
-          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
-          newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
-          newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
+          newListmovie+=`<div class="movie-output" id="${movie.title}">`;
+          newListmovie+=`<h2>${movie.title}</h2>`
+          newListmovie+=`<h4>Year Released: </h4>`
+          newListmovie+=`<h4>Starring:</h4> <h4></h4>`
+          newListmovie+='<input type="checkbox" class="watched-checkbox" checked value="Seen-it!"> Seen it!</input>'
+          //newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
+          //newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
+          newListmovie+='<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>'
           newListmovie+='</div>';
           newListmovie+='<div class="col-xs-4">';
           newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
           newListmovie+='</div>';
           newListmovie+='</li>';
-          //apend to list
           $('#watchedOutput').append(newListmovie);
         } else {
-          let newListmovie = `<li>`;
-          newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
-          newListmovie+='<input class="checkboxStyle" type="checkbox">';
-          newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
+        	//$('#toWatchOutput').append(`<div class="movie-output" id="${movie.title}">` + `<h2>${movie.title}</h2>` + `<h4>Year Released: </h4>` + `<h4>Starring:</h4> <h4></h4>` + '<br/>' + '<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>' + '<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>' + '<br/>' + '<button class="btn btn-sm btn-success movie-adder">Add Movie to My Watchlist</button>'+ '</div>');
+
+        	let newListmovie = `<li>`;
+          newListmovie+=`<div class="movie-output" id="${movie.title}">`;
+          newListmovie+=`<h2>${movie.title}</h2>`
+          newListmovie+=`<h4>Year Released: </h4>`
+          newListmovie+=`<h4>Starring:</h4> <h4></h4>`
+          newListmovie+='<input type="checkbox" class="watched-checkbox" checked value="Seen-it!"> Seen it!</input>'
+          //newListmovie+='<input class="checkboxStyle" type="checkbox" checked>';
+          //newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
+          newListmovie+='<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>'
           newListmovie+='</div>';
           newListmovie+='<div class="col-xs-4">';
-          newListmovie+=`<button class="btn btn-danger col-xs-6 delete" data-fbid="${movie.id}">Delete</button>`;
+          newListmovie+=`<button class="btn btn-danger col-xs-6 delete">Delete</button> `;
           newListmovie+='</div>';
           newListmovie+='</li>';
-          //apend to list
           $('#toWatchOutput').append(newListmovie);
+          // let newListmovie = `<li>`;
+          // newListmovie+=`<div class="col-xs-8" data-fbid="${movie.id}">`;
+          // newListmovie+='<input class="checkboxStyle" type="checkbox">';
+          // newListmovie+=`<label class="movieTitle">${movie.title}</label>`;
+          // newListmovie+='</div>';
+          // newListmovie+='<div class="col-xs-4">';
+          // newListmovie+=`<button class="btn btn-danger col-xs-6 delete" data-fbid="${movie.id}">Delete</button>`;
+          // newListmovie+='</div>';
+          // newListmovie+='</li>';
+          // //apend to list
+          // $('#toWatchOutput').append(newListmovie);
         }	
 		});
 	});
@@ -183,7 +206,7 @@ FbAPI.firebaseCredentials().then(function(keys){
 		});
 	});
 
-	//checkbox
+	checkbox
 	$('ol').on('change', 'input[type="checkbox"]', function(){
 			let updatedIsWatched = $(this).closest('li').data('watchedOutput');
 			let movieId = $(this).parent().data('fbid');
@@ -219,7 +242,7 @@ FbAPI.firebaseCredentials().then(function(keys){
       "uid": uid
     };
     FbAPI.addMovie(apiKeys, newMovie).then(function(){
-      putMovieInDOM();
+      putMoviesInDOM();
     });
   });
 
