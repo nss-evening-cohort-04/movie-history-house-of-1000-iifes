@@ -22,12 +22,13 @@ function putMoviesInDom(){
           newListmovie+='</div>';
           newListmovie+='</li>';
           $('#watchedOutput').append(newListmovie);
+          //$('#toWatchOutput').append(newListmovie);
         } else {
         	let newListmovie = `<li>`;
           newListmovie+=`<div class="movie-output" data-fbid="${movie.id}">`;
           newListmovie+=`<h2 class="movieTitle">${movie.title}</h2>`;
-          newListmovie+=`<h4>Year Released: ${movie.yearReleased}</h4>`;
-          newListmovie+=`<h4>Starring:</h4> <br> <h4>${movie.starring}</h4>`;
+          newListmovie+=`<h4 class="movieYear">Year Released: ${movie.yearReleased}</h4>`;
+          newListmovie+=`<h4>Starring:</h4> <br> <h4 class="movieStars">${movie.starring}</h4>`;
           newListmovie+='<input type="checkbox" class="watched-checkbox" value="Seen-it!"> Seen it!</input>';
           newListmovie+='<h4 class="ratingHeader hidden">My Rating:</h4> <select class="ratingDropdown hidden"> <option value="blank">---</option> <option value="5">5</option> <option value="4">4</option> <option value="3">3</option> <option value="2">2</option> <option value="1">1</option></select>';
           newListmovie+=`<br> <button class="btn btn-danger delete">Delete</button> `;
@@ -203,10 +204,17 @@ FbAPI.firebaseCredentials().then(function(keys){
 			      "uid": uid
 			    };
 
+			// let watchedMovie = {
+			//       "title": dataFromOMDB.Title,
+			//       "yearReleased": dataFromOMDB.Year,
+			//       "starring": dataFromOMDB.Actors,
+			//       "isWatched": false,
+			//       "uid": uid
+			//     };    
+
 			FbAPI.watchedMovie(apiKeys, movieId, watchedMovie).then(function(){
 				putMoviesInDom();
-
-		 	});
+			});
 	});
 
 
